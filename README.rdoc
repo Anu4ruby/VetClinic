@@ -5,7 +5,11 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version 1.9.3
+
+* Rails 4.00
+
+* Rake tasks under lib to provide ownership rights for owner, doctor, receptionist and customer
 
 * System dependencies
 
