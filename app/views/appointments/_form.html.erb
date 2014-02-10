@@ -1,0 +1,44 @@
+<%= form_for @appointment, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :date_of_visit, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :date_of_visit, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :pet_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :pet_id, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :customer_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :customer_id, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :vet_doctor_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :vet_doctor_id, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :reminder_required, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :reminder_required, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :reason_for_visit, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :reason_for_visit, :class => 'text_field' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                appointments_path, :class => 'btn' %>
+  </div>
+<% end %>

@@ -1,0 +1,2 @@
+module VetDoctorsHelper
+end

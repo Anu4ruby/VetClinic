@@ -1,0 +1,53 @@
+<%- model_class = VetDoctor -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:address) %></th>
+      <th><%= model_class.human_attribute_name(:city) %></th>
+      <th><%= model_class.human_attribute_name(:state) %></th>
+      <th><%= model_class.human_attribute_name(:zip) %></th>
+      <th><%= model_class.human_attribute_name(:school) %></th>
+      <th><%= model_class.human_attribute_name(:yrs_in_practice) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @vet_doctors.each do |vet_doctor| %>
+      <tr>
+        <td><%= link_to vet_doctor.id, vet_doctor_path(vet_doctor) %></td>
+        <td><%= vet_doctor.name %></td>
+        <td><%= vet_doctor.address %></td>
+        <td><%= vet_doctor.city %></td>
+        <td><%= vet_doctor.state %></td>
+        <td><%= vet_doctor.zip %></td>
+        <td><%= vet_doctor.school %></td>
+        <td><%= vet_doctor.yrs_in_practice %></td>
+        <td><%=l vet_doctor.created_at %></td>
+        <td>
+         <% if can? :update, @vet_doctors %>
+            <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_vet_doctor_path(vet_doctor), :class => 'btn btn-mini' %>
+         <% end %>
+         <% if can? :destroy, @vet_doctors %>
+           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      vet_doctor_path(vet_doctor),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+          <% end %>  
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% if can? :create, @vet_doctors %>
+  <%= link_to t('.new', :default => t("helpers.links.new")),
+            new_vet_doctor_path,
+            :class => 'btn btn-primary' %>
+<% end %>
