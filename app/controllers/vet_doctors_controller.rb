@@ -1,5 +1,5 @@
 class VetDoctorsController < ApplicationController
-  before_filter :authorize_user!, :except => [:index]
+  before_filter :authorize_user! 
 #   load_and_authorize_resource
   before_action :set_vet_doctor, only: [:show, :edit, :update, :destroy]
   
